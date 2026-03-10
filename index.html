@@ -1,13 +1,227 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="id">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Ananda Kheyla Putri Irawan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #ffe4e6;
+            scroll-behavior: smooth;
+        }
+        .font-cherry {
+            font-family: 'Cherry+Bomb+One', cursive;
+        }
+        .lotso-pink {
+            color: #d81b60;
+        }
+        .card-pink {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid #f9a8d4;
+            transition: all 0.3s ease;
+        }
+        .card-pink:hover {
+            transform: translateY(-5px);
+            border-color: #f472b6;
+            box-shadow: 0 10px 20px rgba(244, 114, 182, 0.2);
+        }
+        /* Animasi Melayang */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        /* Animasi Telinga Lotso */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        .ear-wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        /* Efek Berkilau */
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+    </style>
 </head>
-<body>
-  <h1>
-    Hello, nama saya keylaaa
-  </h1>
+<body class="text-pink-900 overflow-x-hidden">
+
+    <!-- Navigasi -->
+    <nav class="fixed top-0 w-full z-50 bg-white/50 backdrop-blur-md border-b border-pink-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="font-cherry text-2xl lotso-pink tracking-wider">AKPI.</h1>
+            <div class="space-x-6 hidden md:block font-semibold">
+                <a href="#home" class="hover:text-pink-600 transition">Beranda</a>
+                <a href="#about" class="hover:text-pink-600 transition">Tentang</a>
+                <a href="#education" class="hover:text-pink-600 transition">Pendidikan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Hero -->
+    <section id="home" class="min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        <!-- Dekorasi Abstrak -->
+        <div class="absolute -top-10 -left-10 w-64 h-64 bg-pink-300/30 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
+
+        <!-- Foto Profil dengan Aksen Lotso -->
+        <div class="relative mb-6 animate-float">
+            <div class="sparkle top-0 -left-4" style="animation-delay: 0.2s"></div>
+            <div class="sparkle bottom-4 -right-4" style="animation-delay: 0.7s"></div>
+            
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-white">
+                <img src="https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773109701_4df709c3.jpg" 
+                     alt="Foto Profil Ananda Kheyla" 
+                     class="w-full h-full object-cover">
+            </div>
+            <!-- Telinga Lotso -->
+            <div class="absolute -top-4 -left-2 w-16 h-16 bg-pink-600 rounded-full ear-wiggle border-4 border-white shadow-md"></div>
+            <div class="absolute -top-4 -right-2 w-16 h-16 bg-pink-600 rounded-full ear-wiggle border-4 border-white shadow-md" style="animation-delay: 0.5s"></div>
+        </div>
+
+        <h2 class="text-4xl md:text-6xl font-cherry mb-2 lotso-pink drop-shadow-sm">Ananda Kheyla Putri Irawan</h2>
+        <p class="text-xl md:text-2xl font-semibold mb-6 text-pink-700 tracking-wide">Pelajar & Peminat Akuntansi</p>
+        
+        <!-- Tombol Kontak -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="https://www.instagram.com/_kkkeylaaa" target="_blank" class="flex items-center space-x-2 bg-white/80 border-2 border-pink-300 px-4 py-2 rounded-full hover:bg-pink-100 transition-all transform hover:scale-105 group">
+                <i data-lucide="instagram" class="w-5 h-5 text-pink-600 group-hover:rotate-12 transition-transform"></i>
+                <span class="font-bold text-pink-700">@_kkkeylaaa</span>
+            </a>
+            <a href="https://wa.me/6283820512125" target="_blank" class="flex items-center space-x-2 bg-white/80 border-2 border-pink-300 px-4 py-2 rounded-full hover:bg-pink-100 transition-all transform hover:scale-105 group">
+                <i data-lucide="phone" class="w-5 h-5 text-pink-600 group-hover:rotate-12 transition-transform"></i>
+                <span class="font-bold text-pink-700">0838-2051-2125</span>
+            </a>
+        </div>
+
+        <div class="flex space-x-4">
+            <a href="#education" class="bg-pink-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-pink-700 transition transform hover:scale-105">Riwayat Sekolah</a>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang -->
+    <section id="about" class="py-20 px-6 bg-white/40">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-10 inline-block p-4 bg-pink-100 rounded-3xl shadow-inner transform rotate-3">
+                <!-- Ikon Lotso Sederhana -->
+                <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="90" fill="#d81b60"/>
+                    <circle cx="100" cy="110" r="40" fill="#fce7f3"/>
+                    <circle cx="100" cy="95" r="15" fill="#5c0d2e"/>
+                    <circle cx="70" cy="75" r="10" fill="white"/>
+                    <circle cx="130" cy="75" r="10" fill="white"/>
+                </svg>
+            </div>
+            <h3 class="text-3xl font-cherry mb-6 lotso-pink">Tentang Saya</h3>
+            <p class="text-lg leading-relaxed mb-6 px-4 italic">
+                "Mengelola angka dengan teliti, merangkai masa depan dengan mimpi."
+            </p>
+            <p class="text-lg leading-relaxed px-4">
+                Saya adalah siswi Akuntansi di <strong>SMK Al Irsyad Al Islamiyyah</strong>. Fokus saya adalah menguasai keahlian akuntansi yang kompeten sambil tetap mengekspresikan sisi kreatif saya melalui desain dan media sosial.
+            </p>
+        </div>
+    </section>
+
+    <!-- Bagian Pendidikan -->
+    <section id="education" class="py-20 px-6 relative">
+        <h3 class="text-3xl font-cherry text-center mb-16 lotso-pink">Riwayat Pendidikan</h3>
+        
+        <div class="max-w-3xl mx-auto space-y-8 relative">
+            <!-- Garis Dekoratif -->
+            <div class="absolute left-10 md:left-1/2 top-0 bottom-0 w-1 bg-pink-200 -z-10 hidden md:block"></div>
+
+            <!-- SMK -->
+            <div class="card-pink p-8 rounded-3xl flex items-start space-x-6">
+                <div class="bg-pink-600 text-white p-4 rounded-2xl text-xl font-bold min-w-[100px] text-center shadow-md">2023-2026</div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-1">SMK Al Irsyad Al Islamiyyah</h4>
+                    <p class="text-pink-600 font-semibold mb-2">Jurusan Akuntansi</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">Mempelajari pengelolaan keuangan, jurnal umum, perpajakan, dan aplikasi akuntansi modern.</p>
+                </div>
+            </div>
+
+            <!-- SMP -->
+            <div class="card-pink p-8 rounded-3xl flex items-start space-x-6">
+                <div class="bg-pink-400 text-white p-4 rounded-2xl text-xl font-bold min-w-[100px] text-center shadow-md">2020-2023</div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-1">SMP Negeri 2 Kroya</h4>
+                    <p class="text-pink-600 font-semibold mb-2">Pendidikan Menengah Pertama</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">Mengembangkan minat akademis dan keterampilan bersosialisasi selama tiga tahun yang berkesan.</p>
+                </div>
+            </div>
+
+            <!-- SD -->
+            <div class="card-pink p-8 rounded-3xl flex items-start space-x-6">
+                <div class="bg-pink-300 text-white p-4 rounded-2xl text-xl font-bold min-w-[100px] text-center shadow-md">2014-2020</div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-1">SD Negeri Jayamulya 1</h4>
+                    <p class="text-pink-600 font-semibold mb-2">Pendidikan Dasar</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">Tempat pertama saya belajar membaca, menulis, dan mengenal dunia pendidikan lebih luas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 text-center border-t border-pink-200 bg-white/30">
+        <div class="font-cherry text-xl mb-4 lotso-pink">Ananda Kheyla Putri Irawan</div>
+        
+        <div class="flex justify-center space-x-8 mb-8">
+            <a href="https://www.instagram.com/_kkkeylaaa" target="_blank" class="text-pink-600 hover:text-pink-800 transition transform hover:scale-125">
+                <i data-lucide="instagram" class="w-8 h-8"></i>
+            </a>
+            <a href="https://wa.me/6283820512125" target="_blank" class="text-pink-600 hover:text-pink-800 transition transform hover:scale-125">
+                <i data-lucide="phone" class="w-8 h-8"></i>
+            </a>
+        </div>
+
+        <p class="text-sm opacity-70">© 2024 • Didesain dengan tema Lotso 🍓</p>
+        <div class="mt-4 flex justify-center space-x-4 opacity-50">
+            <span>🧸</span>
+            <span>🎀</span>
+            <span>✨</span>
+        </div>
+    </footer>
+
+    <script>
+        // Inisialisasi Ikon Lucide
+        lucide.createIcons();
+
+        // Smooth scroll untuk navigasi internal
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                const offset = 90; 
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: elementPosition - offset,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-</html>
+  </html>
