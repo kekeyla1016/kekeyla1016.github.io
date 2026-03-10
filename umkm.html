@@ -1,0 +1,207 @@
+import React, { useState } from 'react';
+import { Instagram, Phone, MapPin, ShoppingBag, Menu, X, Heart } from 'lucide-react';
+
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Link Logo & Media Sosial Terbaru
+  const logoUrl = "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773108488_d414f8f7.png";
+  const instagramHandle = "_kkkeylaaa";
+  const instagramUrl = `https://www.instagram.com/${instagramHandle}`;
+
+  // Data Produk dengan link foto dan nama yang sudah disesuaikan
+  const products = [
+    {
+      id: 1,
+      name: "Lotso Pinky Blouse",
+      price: "85.000",
+      image: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773107758_0eaa6c5b.jpg",
+      tag: "Best Seller"
+    },
+    {
+      id: 2,
+      name: "Berry Sweet Knit",
+      price: "125.000",
+      image: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773107768_539deba0.jpg",
+      tag: "New Arrival"
+    },
+    {
+      id: 3,
+      name: "Soft Cloud Cardigan",
+      price: "95.000",
+      image: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773107778_7c72fc73.jpg",
+      tag: "Trendy"
+    },
+    {
+      id: 4,
+      name: "Cozy Choco Pink",
+      price: "110.000",
+      image: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773107785_a09c0807.jpg",
+      tag: "Cozy"
+    },
+    {
+      id: 5,
+      name: "Black & White Urban Set",
+      price: "150.000",
+      image: "https://simangu.smksalirsyad-hgl.sch.id/apimangu/uploads/siswa/232410004/1773107848_a0e1381b.jpg",
+      tag: "Stylish"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#FFF5F7] font-sans text-[#4A3728]">
+      {/* Navigasi */}
+      <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-[#FBCFE8]">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <img src={logoUrl} alt="Logo Keylaa" className="h-10 w-auto object-contain" />
+            <span className="text-xl font-black tracking-tighter text-[#D11A5B] hidden sm:block">keylaa.</span>
+          </div>
+          
+          <div className="hidden md:flex gap-8 font-bold text-sm tracking-widest text-[#4A3728]">
+            <a href="#home" className="hover:text-[#D11A5B] transition">HOME</a>
+            <a href="#katalog" className="hover:text-[#D11A5B] transition">KATALOG</a>
+            <a href="#tentang" className="hover:text-[#D11A5B] transition">KONTAK</a>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-pink-100 rounded-full transition text-[#D11A5B]">
+              <Instagram size={20} />
+            </a>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 text-[#4A3728]">
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Bagian Hero */}
+      <section id="home" className="pt-40 pb-24 px-4 bg-gradient-to-b from-[#FCE7F3] to-[#FFF5F7]">
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+          <div className="flex items-center gap-2 bg-[#D11A5B] text-white px-5 py-2 rounded-full text-[10px] font-black mb-8 animate-pulse tracking-[0.2em]">
+            <Heart size={14} fill="currentColor" />
+            LOTSO VIBE WEAR CO.
+          </div>
+          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none uppercase tracking-tighter">
+            Style <br />
+            <span className="text-[#D11A5B]">Aesthetic.</span>
+          </h1>
+          <p className="text-lg text-[#6B4F3B] max-w-xl mb-12 font-medium leading-relaxed">
+            Koleksi pilihan dengan nuansa Lotso untuk kamu yang ingin tampil ceria. 
+            Harga bersahabat, mulai dari 85 ribuan saja!
+          </p>
+          <div className="flex flex-wrap justify-center gap-5">
+            <a href="#katalog" className="bg-[#D11A5B] text-white px-12 py-5 rounded-2xl font-black shadow-2xl shadow-pink-300 hover:bg-[#b0164c] transition-all hover:-translate-y-1 active:scale-95 uppercase tracking-widest text-sm text-center">
+              Belanja Sekarang
+            </a>
+            <div className="bg-white text-[#8B4513] px-10 py-5 rounded-2xl font-black border-2 border-[#8B4513]/10 text-sm uppercase tracking-widest shadow-sm">
+              Mulai Rp 85.000
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Grid Katalog */}
+      <section id="katalog" className="py-24 px-4 max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-20 text-center">
+          <h2 className="text-4xl font-black text-[#4A3728] uppercase tracking-tighter">Katalog Produk</h2>
+          <div className="h-2 w-20 bg-[#D11A5B] mt-4 rounded-full shadow-sm"></div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          {products.map((product) => (
+            <div key={product.id} className="group relative bg-white rounded-[3rem] overflow-hidden border border-pink-100/50 shadow-sm hover:shadow-2xl hover:shadow-pink-200/50 transition-all duration-700">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  loading="lazy"
+                />
+                <div className="absolute top-6 left-6">
+                  <span className="bg-[#D11A5B] text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">
+                    {product.tag}
+                  </span>
+                </div>
+              </div>
+              <div className="p-10 text-center">
+                <h3 className="text-2xl font-black text-[#4A3728] mb-2 group-hover:text-[#D11A5B] transition-colors uppercase italic tracking-tight">{product.name}</h3>
+                <p className="text-[#8B4513] font-black text-xl mb-6">Rp {product.price}</p>
+                <button className="w-full bg-[#FCE7F3] text-[#D11A5B] py-4 rounded-3xl font-black text-xs uppercase tracking-widest hover:bg-[#D11A5B] hover:text-white transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm">
+                  <ShoppingBag size={20} /> Order Sekarang
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer & Kontak */}
+      <footer id="tentang" className="bg-[#4A3728] text-[#FCE7F3] pt-32 pb-16 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#D11A5B]/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+          <img src={logoUrl} alt="Logo Keylaa Putih" className="h-24 w-auto object-contain mb-8 brightness-0 invert opacity-90" />
+          <div className="text-4xl font-black mb-12 text-white uppercase tracking-tighter">keylaa<span className="text-[#D11A5B]">.</span></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-20">
+            {/* WhatsApp */}
+            <div className="bg-[#5a4433]/50 backdrop-blur-sm p-10 rounded-[3rem] border border-white/5 hover:border-pink-500/30 transition-colors group shadow-lg">
+              <div className="w-14 h-14 bg-[#D11A5B] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#D11A5B]/20">
+                <Phone size={28} className="text-white" />
+              </div>
+              <h4 className="font-black text-white mb-3 uppercase tracking-widest text-sm">WhatsApp</h4>
+              <p className="text-pink-100/60 font-bold">0838-2051-2125</p>
+            </div>
+
+            {/* Instagram */}
+            <div className="bg-[#5a4433]/50 backdrop-blur-sm p-10 rounded-[3rem] border border-white/5 hover:border-pink-500/30 transition-colors group shadow-lg">
+              <div className="w-14 h-14 bg-[#D11A5B] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#D11A5B]/20">
+                <Instagram size={28} className="text-white" />
+              </div>
+              <h4 className="font-black text-white mb-3 uppercase tracking-widest text-sm">Instagram</h4>
+              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-pink-100/60 hover:text-white transition underline underline-offset-8 font-bold">@{instagramHandle}</a>
+            </div>
+
+            {/* Alamat */}
+            <div className="bg-[#5a4433]/50 backdrop-blur-sm p-10 rounded-[3rem] border border-white/5 hover:border-pink-500/30 transition-colors group shadow-lg">
+              <div className="w-14 h-14 bg-[#D11A5B] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#D11A5B]/20">
+                <MapPin size={28} className="text-white" />
+              </div>
+              <h4 className="font-black text-white mb-3 uppercase tracking-widest text-sm">Alamat</h4>
+              <p className="text-pink-100/60 text-sm font-medium leading-relaxed italic">
+                Desa Jayamulya Blok Cipedang Dasir, Kec. Kroya, Indramayu
+              </p>
+            </div>
+          </div>
+          
+          <div className="w-full h-px bg-white/10 mb-10"></div>
+          <div className="flex flex-col md:flex-row justify-between w-full items-center gap-4 text-[10px] font-black text-pink-100/30 uppercase tracking-[0.3em]">
+            <span>© 2024 Keylaa Wear Co.</span>
+            <span>Est. Indramayu, Jawa Barat</span>
+          </div>
+        </div>
+      </footer>
+
+      {/* Menu Overlay untuk Mobile */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-[60] bg-[#FFF5F7] flex flex-col p-10 md:hidden overflow-hidden">
+          <div className="absolute top-10 right-10 w-40 h-40 bg-[#D11A5B]/5 rounded-full blur-3xl"></div>
+          <div className="flex justify-between items-center mb-20 relative z-10">
+            <img src={logoUrl} alt="Logo" className="h-10 w-auto" />
+            <button onClick={() => setIsMenuOpen(false)} className="p-4 bg-white rounded-full shadow-xl">
+              <X size={28} className="text-[#4A3728]" />
+            </button>
+          </div>
+          <div className="flex flex-col gap-10 text-6xl font-black text-[#4A3728] relative z-10">
+            <a href="#home" onClick={() => setIsMenuOpen(false)} className="hover:text-[#D11A5B] transition-colors tracking-tighter text-left">HOME</a>
+            <a href="#katalog" onClick={() => setIsMenuOpen(false)} className="hover:text-[#D11A5B] transition-colors tracking-tighter text-left">SHOP</a>
+            <a href="#tentang" onClick={() => setIsMenuOpen(false)} className="hover:text-[#D11A5B] transition-colors tracking-tighter text-left">CONTACT</a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
